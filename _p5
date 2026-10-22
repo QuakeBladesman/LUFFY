@@ -1,0 +1,8 @@
+t = subprocess.check_output(["git", "show", SHA + ":README.md"]).decode()
+o = []
+for l in t.split("\n"):
+    m = re.match(r"^- \[ \] \*\*([^*]+):(\d+)\*\* - (.*)$", l)
+    if m and m.group(1) in M:
+        k = int(m.group(2)); d, r = M[m.group(1)]
+        if k in d:
+            continue
