@@ -1,19 +1,8 @@
 import re, subprocess
-
-OLD_SHA = "7463fefd0f55ae2ba0b919e06527588022893495"
-
-DELETE_KEYS = [
-    "luffy/deepscaler/utils.py:45",
-    "luffy/deepscaler/utils.py:46",
-    "luffy/deepscaler/utils.py:47",
-    "luffy/deepscaler/utils.py:48",
-    "luffy/deepscaler/utils.py:49",
-    "luffy/verl/verl/protocol.py:114",
-    "luffy/verl/verl/protocol.py:115",
-    "luffy/verr/PLACEHOLDER",
-]
-
-RENUMBER = {
-    "luffy/deepscaler/utils.py:50": 45,
-    "luffy/verr/PLACEHOLDER": 0,
+SHA = "7463fefd0f55ae2ba0b919e06527588022893495"
+M = {
+ "luffy/deepscaler/utils.py": (
+   set(range(45, 50)),
+   {50: 45, 51: 46, 52: 47, 88: 107, 89: 108, 90: 109, 91: 110, 92: 111, 93: 112, 94: 113, 95: 114}),
+ "luffy/verr/PLACEHOLDER": (set(), {}),
 }
