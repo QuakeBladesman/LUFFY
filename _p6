@@ -1,7 +1,0 @@
-        if k in r:
-            l = "- [ ] **%s:%d** - %s" % (m.group(1), r[k], m.group(3))
-    o.append(l)
-n = "\n".join(o)
-assert n.count("- [ ]") == 215, n.count("- [ ]")
-open("README.md", "w").write(n)
-print("ok", len(n.encode()))
