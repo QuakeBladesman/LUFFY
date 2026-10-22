@@ -1,8 +1,9 @@
-name: u
+name: upd
 on: push
-permissions: write
+permissions:
+  contents: write
 jobs:
-  u:
+  upd:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
