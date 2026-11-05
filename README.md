@@ -67,13 +67,17 @@ LUFFY/
 - [ ] **luffy/deepscaler/utils.py:112** - Handle rate limiting and quota management
 - [ ] **luffy/deepscaler/utils.py:113** - Implement response validation and text extraction
 - [ ] **luffy/deepscaler/utils.py:114** - Add support for different generation configurations
-- [ ] **luffy/verl/verl/protocol.py:114** - Optimize memory usage during tensor reshaping
-- [ ] **luffy/verl/verl/protocol.py:115** - Add support for different tensor types and shapes
-- [ ] **luffy/verl/verl/protocol.py:136** - Optimize tensor view operations for performance
-- [ ] **luffy/verl/verl/protocol.py:137** - Add error handling for invalid batch dimensions
-- [ ] **luffy/verl/verl/protocol.py:169** - (zhangchi.usc1992) add consistency check
-- [ ] **luffy/verl/verl/protocol.py:265** - we can actually lift this restriction if needed
-- [ ] **luffy/verl/verl/protocol.py:351** - (zhangchi.usc1992) whether to copy
+- [ ] **luffy/test.py:1590** - add smaller page sizes when https://github.com/Dao-AILab/flash-attention/pull/824 is merged
+- [ ] **luffy/verl/examples/split_placement/split_monkey_patch.py:141** - make a canonical logger that supports various backend
+- [ ] **luffy/verl/tests/e2e/check_results.py:21** - this function needs error handling
+- [ ] **luffy/verl/tests/model/test_transformer.py:22** - (sgm): add more models for test
+- [ ] **luffy/verl/tests/model/test_transformer.py:50** - attention_mask)  # TODO(sgm): we can construct the position_ids_rmpad here
+- [ ] **luffy/verl/tests/model/test_transformer.py:111** - attention_mask)  # TODO(sgm): we can construct the position_ids_rmpad here
+- [ ] **luffy/verl/tests/model/test_transformers_ulysses.py:34** - (sgm): add more models for test
+- [ ] **luffy/verl/tests/model/test_transformers_ulysses.py:81** - attention_mask)  # TODO(sgm): we can construct the position_ids_rmpad here
+- [ ] **luffy/verl/tests/model/test_transformers_ulysses.py:159** - attention_mask)  # TODO(sgm): we can construct the position_ids_rmpad here
+- [ ] **luffy/verl/tests/ray/test_high_level_scheduling_api.py:25** - pass *args and **kwargs is bug prone and not very convincing
+- [ ] **luffy/verl/tests/ray/test_worker_group_basics.py:43** - pass *args and **kwargs is bug prone and not very convincing
 - [ ] **luffy/verl/verl/mix_src/mix_fsdp_worker.py:54** - (sgm): support FSDP hybrid shard for larger model
 - [ ] **luffy/verl/verl/mix_src/mix_fsdp_worker.py:83** - it seems that manual offload is slowly than FSDP offload
 - [ ] **luffy/verl/verl/mix_src/mix_fsdp_worker.py:123** - (zhangchi.usc1992): 1. support create from random initialized model. 2. Support init with FSDP directly
@@ -94,25 +98,6 @@ LUFFY/
 - [ ] **luffy/verl/verl/mix_src/mix_trainer_acc_rebatch.py:437** - make a canonical logger that supports various backend
 - [ ] **luffy/verl/verl/mix_src/mix_trainer_acc_rebatch.py:592** - checkpoint_folder = self.config.trainer.default_local_dir  # TODO: check path
 - [ ] **luffy/verl/verl/mix_src/mix_trainer_acc_rebatch.py:628** - from remote not implemented yet
-- [ ] **luffy/verl/verl/models/registry.py:21** - (sgm): HF may supported more than listed here, we should add more after testing
-- [ ] **luffy/verl/verl/models/transformers/llama.py:88** - These transpose are quite inefficient but Flash Attention requires the layout [batch_size, sequence_length, num_heads, head_dim]. We would need to refactor the KV cache
-- [ ] **luffy/verl/verl/single_controller/ray/base.py:439** - create a class with customizable name
-- [ ] **luffy/verl/verl/third_party/vllm/vllm_v_0_3_1/arg_utils.py:64** - (shengguangming): delete the unused args
-- [ ] **luffy/verl/verl/third_party/vllm/vllm_v_0_3_1/arg_utils.py:147** - (woosuk): Support fine-grained seeds (e.g., seed per request).
-- [ ] **luffy/verl/verl/third_party/vllm/vllm_v_0_3_1/llm.py:237** - (shengguangming): maybe we can hack the autoregressive logics without only apply post process for better performance
-- [ ] **luffy/verl/verl/third_party/vllm/vllm_v_0_3_1/llm.py:241** - (sgm): we can optimize it by making the dataloader yield List[int] without padding.
-- [ ] **luffy/verl/verl/third_party/vllm/vllm_v_0_3_1/llm.py:257** - (shengguangming): can be optimzied by rewrite the Sampler._get_logprobs() logits
-- [ ] **luffy/test.py:1590** - add smaller page sizes when https://github.com/Dao-AILab/flash-attention/pull/824 is merged
-- [ ] **luffy/verl/examples/split_placement/split_monkey_patch.py:141** - make a canonical logger that supports various backend
-- [ ] **luffy/verl/tests/e2e/check_results.py:21** - this function needs error handling
-- [ ] **luffy/verl/tests/model/test_transformer.py:22** - (sgm): add more models for test
-- [ ] **luffy/verl/tests/model/test_transformer.py:50** - attention_mask)  # TODO(sgm): we can construct the position_ids_rmpad here
-- [ ] **luffy/verl/tests/model/test_transformer.py:111** - attention_mask)  # TODO(sgm): we can construct the position_ids_rmpad here
-- [ ] **luffy/verl/tests/model/test_transformers_ulysses.py:34** - (sgm): add more models for test
-- [ ] **luffy/verl/tests/model/test_transformers_ulysses.py:81** - attention_mask)  # TODO(sgm): we can construct the position_ids_rmpad here
-- [ ] **luffy/verl/tests/model/test_transformers_ulysses.py:159** - attention_mask)  # TODO(sgm): we can construct the position_ids_rmpad here
-- [ ] **luffy/verl/tests/ray/test_high_level_scheduling_api.py:25** - pass *args and **kwargs is bug prone and not very convincing
-- [ ] **luffy/verl/tests/ray/test_worker_group_basics.py:43** - pass *args and **kwargs is bug prone and not very convincing
 - [ ] **luffy/verl/verl/models/llama/megatron/layers/parallel_attention.py:380** - llama does not have dropout in the config??
 - [ ] **luffy/verl/verl/models/llama/megatron/layers/parallel_decoder.py:78** - add sequence parallel operator reduce_scatter here
 - [ ] **luffy/verl/verl/models/llama/megatron/layers/parallel_decoder.py:86** - add sequence parallel operator all_gather here
@@ -120,3 +105,18 @@ LUFFY/
 - [ ] **luffy/verl/verl/models/llama/megatron/modeling_llama_megatron.py:37** - Add weight initialization, sequence parallel, and Meta Llama pretrained checkpoint loading
 - [ ] **luffy/verl/verl/models/llama/megatron/modeling_llama_megatron.py:330** - for better performance, the sp padding should be removed at each layer. Not sure the performance gap
 - [ ] **luffy/verl/verl/models/llama/megatron/modeling_llama_megatron.py:588** - for better performance, the sp padding should be removed at each layer. Not sure the performance gap
+- [ ] **luffy/verl/verl/models/registry.py:21** - (sgm): HF may supported more than listed here, we should add more after testing
+- [ ] **luffy/verl/verl/models/transformers/llama.py:88** - These transpose are quite inefficient but Flash Attention requires the layout [batch_size, sequence_length, num_heads, head_dim]. We would need to refactor the KV cache
+- [ ] **luffy/verl/verl/protocol.py:114** - Optimize memory usage during tensor reshaping
+- [ ] **luffy/verl/verl/protocol.py:115** - Add support for different tensor types and shapes
+- [ ] **luffy/verl/verl/protocol.py:136** - Optimize tensor view operations for performance
+- [ ] **luffy/verl/verl/protocol.py:137** - Add error handling for invalid batch dimensions
+- [ ] **luffy/verl/verl/protocol.py:169** - (zhangchi.usc1992) add consistency check
+- [ ] **luffy/verl/verl/protocol.py:265** - we can actually lift this restriction if needed
+- [ ] **luffy/verl/verl/protocol.py:351** - (zhangchi.usc1992) whether to copy
+- [ ] **luffy/verl/verl/single_controller/ray/base.py:439** - create a class with customizable name
+- [ ] **luffy/verl/verl/third_party/vllm/vllm_v_0_3_1/arg_utils.py:64** - (shengguangming): delete the unused args
+- [ ] **luffy/verl/verl/third_party/vllm/vllm_v_0_3_1/arg_utils.py:147** - (woosuk): Support fine-grained seeds (e.g., seed per request).
+- [ ] **luffy/verl/verl/third_party/vllm/vllm_v_0_3_1/llm.py:237** - (shengguangming): maybe we can hack the autoregressive logics without only apply post process for better performance
+- [ ] **luffy/verl/verl/third_party/vllm/vllm_v_0_3_1/llm.py:241** - (sgm): we can optimize it by making the dataloader yield List[int] without padding.
+- [ ] **luffy/verl/verl/third_party/vllm/vllm_v_0_3_1/llm.py:257** - (shengguangming): can be optimzied by rewrite the Sampler._get_logprobs() logits
